@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @guest.name %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%=h @guest.company %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @guest.email %>
+</p>
+
+<p>
+  <b>Twitter:</b>
+  @<a href="http://twitter.com/<%=h @guest.twitter %>"><%=h @guest.twitter %></a>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%=h @guest.tags %>
+</p>
+
+<p>
+  <b>Printed:</b>
+  <%=h @guest.printed %>
+</p>
+
+
+<%= link_to 'Edit', edit_guest_path(@guest) %> |
+<%= link_to 'Back', guests_path %>

@@ -1,0 +1,293 @@
+--- !ruby/object:Gem::Specification 
+name: webmock
+version: !ruby/object:Gem::Version 
+  hash: 11
+  prerelease: 
+  segments: 
+  - 1
+  - 6
+  - 2
+  version: 1.6.2
+platform: ruby
+authors: 
+- Bartosz Blimke
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2011-01-11 00:00:00 -07:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: addressable
+  prerelease: false
+  requirement: &id001 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        hash: 3
+        segments: 
+        - 2
+        - 2
+        - 2
+        version: 2.2.2
+  type: :runtime
+  version_requirements: *id001
+- !ruby/object:Gem::Dependency 
+  name: crack
+  prerelease: false
+  requirement: &id002 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        hash: 21
+        segments: 
+        - 0
+        - 1
+        - 7
+        version: 0.1.7
+  type: :runtime
+  version_requirements: *id002
+- !ruby/object:Gem::Dependency 
+  name: rspec
+  prerelease: false
+  requirement: &id003 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        hash: 15
+        segments: 
+        - 2
+        - 0
+        - 0
+        version: 2.0.0
+  type: :development
+  version_requirements: *id003
+- !ruby/object:Gem::Dependency 
+  name: httpclient
+  prerelease: false
+  requirement: &id004 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        hash: 119
+        segments: 
+        - 2
+        - 1
+        - 5
+        - 2
+        version: 2.1.5.2
+  type: :development
+  version_requirements: *id004
+- !ruby/object:Gem::Dependency 
+  name: patron
+  prerelease: false
+  requirement: &id005 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        hash: 29
+        segments: 
+        - 0
+        - 4
+        - 9
+        version: 0.4.9
+  type: :development
+  version_requirements: *id005
+- !ruby/object:Gem::Dependency 
+  name: em-http-request
+  prerelease: false
+  requirement: &id006 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        hash: 11
+        segments: 
+        - 0
+        - 2
+        - 14
+        version: 0.2.14
+  type: :development
+  version_requirements: *id006
+- !ruby/object:Gem::Dependency 
+  name: curb
+  prerelease: false
+  requirement: &id007 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        hash: 19
+        segments: 
+        - 0
+        - 7
+        - 8
+        version: 0.7.8
+  type: :development
+  version_requirements: *id007
+description: WebMock allows stubbing HTTP requests and setting expectations on HTTP requests.
+email: bartosz.blimke@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- LICENSE
+- README.md
+files: 
+- .gitignore
+- CHANGELOG.md
+- LICENSE
+- README.md
+- Rakefile
+- VERSION
+- lib/webmock.rb
+- lib/webmock/api.rb
+- lib/webmock/assertion_failure.rb
+- lib/webmock/callback_registry.rb
+- lib/webmock/config.rb
+- lib/webmock/cucumber.rb
+- lib/webmock/deprecation.rb
+- lib/webmock/errors.rb
+- lib/webmock/http_lib_adapters/curb.rb
+- lib/webmock/http_lib_adapters/em_http_request.rb
+- lib/webmock/http_lib_adapters/httpclient.rb
+- lib/webmock/http_lib_adapters/net_http.rb
+- lib/webmock/http_lib_adapters/net_http_response.rb
+- lib/webmock/http_lib_adapters/patron.rb
+- lib/webmock/request_execution_verifier.rb
+- lib/webmock/request_pattern.rb
+- lib/webmock/request_registry.rb
+- lib/webmock/request_signature.rb
+- lib/webmock/request_stub.rb
+- lib/webmock/response.rb
+- lib/webmock/responses_sequence.rb
+- lib/webmock/rspec.rb
+- lib/webmock/rspec/matchers.rb
+- lib/webmock/rspec/matchers/request_pattern_matcher.rb
+- lib/webmock/rspec/matchers/webmock_matcher.rb
+- lib/webmock/stub_registry.rb
+- lib/webmock/stub_request_snippet.rb
+- lib/webmock/test_unit.rb
+- lib/webmock/util/hash_counter.rb
+- lib/webmock/util/hash_keys_stringifier.rb
+- lib/webmock/util/headers.rb
+- lib/webmock/util/uri.rb
+- lib/webmock/webmock.rb
+- spec/curb_spec.rb
+- spec/curb_spec_helper.rb
+- spec/em_http_request_spec.rb
+- spec/em_http_request_spec_helper.rb
+- spec/errors_spec.rb
+- spec/example_curl_output.txt
+- spec/httpclient_spec.rb
+- spec/httpclient_spec_helper.rb
+- spec/net_http_spec.rb
+- spec/net_http_spec_helper.rb
+- spec/network_connection.rb
+- spec/other_net_http_libs_spec.rb
+- spec/patron_spec.rb
+- spec/patron_spec_helper.rb
+- spec/request_execution_verifier_spec.rb
+- spec/request_pattern_spec.rb
+- spec/request_registry_spec.rb
+- spec/request_signature_spec.rb
+- spec/request_stub_spec.rb
+- spec/response_spec.rb
+- spec/spec_helper.rb
+- spec/stub_registry_spec.rb
+- spec/stub_request_snippet_spec.rb
+- spec/util/hash_counter_spec.rb
+- spec/util/hash_keys_stringifier_spec.rb
+- spec/util/headers_spec.rb
+- spec/util/uri_spec.rb
+- spec/vendor/addressable/lib/addressable/uri.rb
+- spec/vendor/addressable/lib/uri.rb
+- spec/vendor/crack/lib/crack.rb
+- spec/vendor/right_http_connection-1.2.4/History.txt
+- spec/vendor/right_http_connection-1.2.4/Manifest.txt
+- spec/vendor/right_http_connection-1.2.4/README.txt
+- spec/vendor/right_http_connection-1.2.4/Rakefile
+- spec/vendor/right_http_connection-1.2.4/lib/net_fix.rb
+- spec/vendor/right_http_connection-1.2.4/lib/right_http_connection.rb
+- spec/vendor/right_http_connection-1.2.4/setup.rb
+- spec/webmock_shared.rb
+- test/test_helper.rb
+- test/test_webmock.rb
+- webmock.gemspec
+has_rdoc: true
+homepage: http://github.com/bblimke/webmock
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.4.2
+signing_key: 
+specification_version: 3
+summary: Library for stubbing HTTP requests in Ruby.
+test_files: 
+- spec/curb_spec.rb
+- spec/curb_spec_helper.rb
+- spec/em_http_request_spec.rb
+- spec/em_http_request_spec_helper.rb
+- spec/errors_spec.rb
+- spec/httpclient_spec.rb
+- spec/httpclient_spec_helper.rb
+- spec/net_http_spec.rb
+- spec/net_http_spec_helper.rb
+- spec/network_connection.rb
+- spec/other_net_http_libs_spec.rb
+- spec/patron_spec.rb
+- spec/patron_spec_helper.rb
+- spec/request_execution_verifier_spec.rb
+- spec/request_pattern_spec.rb
+- spec/request_registry_spec.rb
+- spec/request_signature_spec.rb
+- spec/request_stub_spec.rb
+- spec/response_spec.rb
+- spec/spec_helper.rb
+- spec/stub_registry_spec.rb
+- spec/stub_request_snippet_spec.rb
+- spec/util/hash_counter_spec.rb
+- spec/util/hash_keys_stringifier_spec.rb
+- spec/util/headers_spec.rb
+- spec/util/uri_spec.rb
+- spec/vendor/addressable/lib/addressable/uri.rb
+- spec/vendor/addressable/lib/uri.rb
+- spec/vendor/crack/lib/crack.rb
+- spec/vendor/right_http_connection-1.2.4/lib/net_fix.rb
+- spec/vendor/right_http_connection-1.2.4/lib/right_http_connection.rb
+- spec/vendor/right_http_connection-1.2.4/setup.rb
+- spec/webmock_shared.rb
+- test/test_helper.rb
+- test/test_webmock.rb

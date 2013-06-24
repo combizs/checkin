@@ -1,0 +1,29 @@
+<div id="wrapper">
+<h1>Guest checkin</h1>
+  <div id="left">
+  <img src="http://www.k9ventures.com//wp-content/themes/k9theme/images/logos/logo90x100.png" alt="K9 Ventures" class="centeredImage">
+  </div>
+  
+  <div id="right">
+  
+    <% form_for(@guest) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :company %><br />
+      <%= f.text_field :company %>
+    </p>
+    <p class="submit">
+      <%= f.submit 'checkin' %>
+    </p>
+  <% end %>
+  </div>
+</div>
+<br clear="all">
+<div id="footer">
+<%= link_to 'Back', guests_path %>
+</div>

@@ -1,0 +1,98 @@
+function Checkin() {
+
+    SetGuestName();
+    SetGuestCompany();
+    SetGuestEmail();
+    SetGuestTwitter();
+    SetGuestTag1();
+    SetGuestTag2();
+    SetGuestTag3();
+
+    //alert('would be printing now!');
+    Print();
+    
+    guest_tags.value = tag1.value + ", " + tag2.value + ", " + tag3.value;
+
+    setTimeout("Clear()", 200);
+
+    return true;
+}
+
+
+function Clear() {
+    guest_name.value = "";
+    SetGuestName();
+    guest_company.value = "";
+    SetGuestCompany();
+    guest_email.value = "";
+    SetGuestEmail();
+    guest_twitter.value = "";
+    SetGuestTwitter();
+    tag1.value = "";
+    SetGuestTag1();
+    tag2.value = "";
+    SetGuestTag2();
+    tag3.value = "";
+    SetGuestTag3();
+
+    guest_name.focus();
+}
+
+
+
+function SetGuestCompany() {
+    ObjectName.value = "company";
+    ObjectData.value = guest_company.value;;
+    SetObjectData();
+    GetLabelImage();
+}
+
+function SetGuestName() {
+    ObjectName.value = "name";
+    ObjectData.value = guest_name.value;
+    SetObjectData();
+    GetLabelImage();
+}
+
+function SetGuestEmail() {
+    /* Not printing email on the label */
+    /* Intentionally blank */
+}
+
+function SetGuestTwitter() {
+    ObjectName.value = "twitter";
+    var twitter = guest_twitter.value;
+    if ((twitter == "") || (twitter.indexOf("@") == 0))  
+    	ObjectData.value = guest_twitter.value;
+    else
+	ObjectData.value = "@" + guest_twitter.value;
+    SetObjectData();
+    GetLabelImage();
+}
+
+function SetGuestTag1() {
+    ObjectName.value = "tag1";
+    ObjectData.value = tag1.value;
+    SetObjectData();
+    GetLabelImage();
+}
+
+function SetGuestTag2() {
+    ObjectName.value = "tag2";
+    ObjectData.value = tag2.value;
+    SetObjectData();
+    GetLabelImage();
+}
+
+function SetGuestTag3() {
+    ObjectName.value = "tag3";
+    ObjectData.value = tag3.value;
+    SetObjectData();
+    GetLabelImage();
+}
+
+
+function AfterLoad() {
+    Open();
+    Clear();
+}

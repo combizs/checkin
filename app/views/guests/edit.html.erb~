@@ -1,0 +1,33 @@
+<h1>Editing guest</h1>
+
+<% form_for(@guest) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :company %><br />
+    <%= f.text_field :company %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter %>
+  </p>
+  <p>
+    <%= f.label :printed %><br />
+    <%= f.radio_button :printed, false %>No &nbsp;&nbsp;&nbsp; <%= f.radio_button :printed, true %>Yes
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @guest %> |
+<%= link_to 'Back', guests_path %>

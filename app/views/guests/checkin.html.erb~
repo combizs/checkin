@@ -1,0 +1,151 @@
+<script type="text/javascript" src="/javascripts/dymo.js"></script>
+<script type="text/javascript" src="/javascripts/dymo_checkin.js"></script>
+
+    <div id="left">
+	  <!-- <img src="http://www.k9ventures.com/wp-content/themes/k9theme/images/logos/logo90x100.png" alt="K9 Ventures" class="centeredImage"> -->
+	  <img src="/images/NotSXSW-cropped.png" alt="!SXSW on Pi Day" class="centeredImage">
+    </div>
+
+    <div id="main">
+	        
+<div id="middle">
+
+         <form action="http://m.k9.vc/guests" class="new_guest"
+id="new_guest" method="post" onsubmit="return Checkin()">
+         <input type="hidden" name="authenticity_token"
+value="xgQw5p24OMyoNnb2uk6KnQJQXYIk5PKUyzDhegPnMrc=">
+           <div class="input-row">
+       <div class="input-row-block">
+         <label for="guest_name">Name: </label><br>
+         <input id="guest_name" name="guest[name]" size="30"
+type="text" onblur="SetGuestName()">
+       </div>
+       <div class="input-row-block">
+         <label for="guest_company">Company: </label> <br>
+         <input id="guest_company" name="guest[company]" size="30"
+type="text" onblur="SetGuestCompany()">
+       </div>
+
+     </div>
+     <div class="input-row">
+       <div class="input-row-block">
+         <label for="guest_email">Email</label><br>
+         <input id="guest_email" name="guest[email]" size="30"
+type="text" onblur="SetGuestEmail()">
+       </div>
+       <div class="input-row-block">
+         <label for="guest_twitter">Twitter</label><br>
+         <input id="guest_twitter" name="guest[twitter]" size="30"
+type="text" onblur="SetGuestTwitter()">
+       </div>
+
+           </div>
+     <div class="input-row">
+       <div id="tags">
+         <input id="guest_tags" name="guest[tags]" size="120" type="hidden">
+         <div class="input-row-block">
+           <label for="tag1">Ask me about ...</label><br>
+           <input id="tag1" name="tag1" size="30" type="text"
+onblur="SetGuestTag1()">
+         </div>
+         <div class="input-row-block">
+           <label for="tag2">&nbsp;</label><br>
+           <input id="tag2" name="tag2" size="30" type="text"
+onblur="SetGuestTag2()">
+         </div>
+         <div class="input-row-block">
+           <label for="tag3">&nbsp;</label><br>
+           <input id="tag3" name="tag3" size="30" type="text"
+onblur="SetGuestTag3()">
+         </div>
+
+       </div>
+     </div>
+           <p class="submit">
+             <input id="guest_submit" name="commit" type="submit" value="checkin">
+           </p>
+         </form>
+ </div>
+
+	<div id="right">
+	  <center>
+	    <embed id="DYMOLabelPlugin" width="300" height="200" type="application/x-dymolabel" bgcolor="#303030" />
+	  </center>
+	</div>
+
+	<div id="dymoform">
+	  <center>
+	    <form action="" method="post" id="DYMOLabel">
+	      <table>
+		
+		<tr><td align=center colspan=2>
+		    <input type=button value="Refresh View" onClick="GetLabelImage()">
+		    
+		    <tr><td align=right></td>
+		      <td></td></tr>
+		    
+		    <tr><td align=right>Label: <input type=text size="50" maxLenght="100" value="/Users/Shared/DYMO Labels/NotSXSW.label" id="OpenLabelPath"></td>
+		      <td><input type=button value="Open Label" onClick="Open()">
+			<input type=button value="Save Label" onClick="Save()"></td></tr>
+
+		    <tr><td align=right>File: <input type=text size="50" maxLenght="100" value="/Applications/DYMO Label SDK/SDK Examples/Save.label" id="SaveLabelPath"></td>
+		      <td><input type=button value="Save Label As" onClick="SaveAs()"></td></tr>
+
+		    <tr><td align=right>Print Copies: <input type=text size="3" maxLength="3" value="1" id="PrintCopies"></td>
+		      <td><input type=button value="Print Label" onClick="Print()"></td></tr>
+		    <tr><td align=right>Paper Tray: <select id="PaperTray">
+			  <option selected>auto</option>
+			  <option>left</option>
+			  <option>right</option>
+		      </select></td><td></td></tr>
+		    <tr><td align=right>Show Print Dialog: <input type=checkbox id="ShowPrintDialog"></td><td>(OS 10.4, 10.5 only)</td></tr>
+
+		    <tr><td valign=top align=right>Printers: <select id="PrinterName"></select></td>
+		      <td><input type=button value="Get DYMO Printers" onClick="GetDYMOPrinters()"><br>
+			<input type=button value="Set Current Printer" onClick="SetCurrentPrinter()">
+			<input type=button value="Get Current Printer" onClick="GetCurrentPrinter()"></td></tr>
+
+		    <tr><td align=right>Paper Tray: <select id="PaperTray2">
+			  <option selected>auto</option>
+			  <option>left</option>
+			  <option>right</option>
+			  <option>select</option>
+			  <option>undefined</option>
+		      </select></td>
+		      <td><input type=button value="Get Paper Tray" onClick="GetPaperTray()"></td></tr>
+
+		    <tr><td align=right>MRU: <select id="MRU"></select></td>
+		      <td><input type=button value="Get MRU List" onClick="GetMRUList()"></td>
+		    </tr>
+		    <tr>
+		      <td></td>
+		      <td><input type=button value="Open" onClick="OpenFromMRU()"></td>
+		    </tr>
+
+		    <tr><td align=right>Objects: <select id="ObjectName"></select></td>
+		      <td><input type=button value="Get Object Names" onClick="GetObjectNames()"></td></tr>
+
+		    <tr><td align=right>Variable Only: <input type=checkbox id="VariableObjectsOnly"></td>
+		      <td></td></tr>
+
+		    <tr><td><table><tr><td valign=top>Object Data:</td><td><textarea rows=10 cols=50 id="ObjectData">Test Test Test</textarea></td></tr></table></td>
+		      <td valign=baseline><input type=button value="Get Object Data" onClick="GetObjectData()"><br>
+			<input type=button value="Set Object Data" onClick="SetObjectData()"></td></tr>
+
+		    <tr><td align=center colspan=2><input type=button value="Paste" onClick="Paste()">
+			<input type=button value="Paste To Object" onClick="PasteToObject()"></td></tr>
+		    
+	      </table>
+	    </form>
+
+	  </center>
+	</div>
+
+    </div>
+    <br clear="all">
+    <div id="footer">
+	<%= link_to 'Back', guests_path %>
+    </div>
+    <script>
+      window.onLoad = AfterLoad();
+    </script>

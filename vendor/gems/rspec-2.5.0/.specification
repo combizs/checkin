@@ -1,0 +1,123 @@
+--- !ruby/object:Gem::Specification 
+name: rspec
+version: !ruby/object:Gem::Version 
+  hash: 27
+  prerelease: 
+  segments: 
+  - 2
+  - 5
+  - 0
+  version: 2.5.0
+platform: ruby
+authors: 
+- David Chelimsky
+- Chad Humphries
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2011-02-04 00:00:00 -07:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: rspec-core
+  prerelease: false
+  requirement: &id001 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 27
+        segments: 
+        - 2
+        - 5
+        - 0
+        version: 2.5.0
+  type: :runtime
+  version_requirements: *id001
+- !ruby/object:Gem::Dependency 
+  name: rspec-expectations
+  prerelease: false
+  requirement: &id002 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 27
+        segments: 
+        - 2
+        - 5
+        - 0
+        version: 2.5.0
+  type: :runtime
+  version_requirements: *id002
+- !ruby/object:Gem::Dependency 
+  name: rspec-mocks
+  prerelease: false
+  requirement: &id003 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 27
+        segments: 
+        - 2
+        - 5
+        - 0
+        version: 2.5.0
+  type: :runtime
+  version_requirements: *id003
+description: Meta-gem that depends on the other rspec gems
+email: dchelimsky@gmail.com;chad.humphries@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README.markdown
+files: 
+- .document
+- .gitignore
+- Gemfile
+- License.txt
+- README.markdown
+- Rakefile
+- lib/rspec.rb
+- lib/rspec/version.rb
+- rspec.gemspec
+has_rdoc: true
+homepage: http://github.com/rspec/rspec
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: rspec
+rubygems_version: 1.4.2
+signing_key: 
+specification_version: 3
+summary: rspec-2.5.0
+test_files: []
+

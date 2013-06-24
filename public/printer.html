@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>K9 Ventures: Checkin</title>
+    <link href="http://m.k9.vc/stylesheets/scaffold.css?1276440946" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="http://m.k9.vc//stylesheets/style.css">
+
+    <script LANGUAGE="JavaScript">
+
+      function Checkin() {
+
+      SetGuestName();
+      SetGuestCompany();
+
+      alert('would be printing now!');
+      //Print();
+      
+      setTimeout("Clear()", 200);
+
+      return true;
+      }
+
+
+      function Clear() {
+      guest_name.value = "";
+      SetGuestName();
+      guest_company.value = "";
+      SetGuestCompany();
+      guest_name.focus();
+      }
+
+
+
+      function SetGuestCompany() {
+      ObjectName.value = "company";
+      ObjectData.value = guest_company.value;;
+      SetObjectData();
+      GetLabelImage();
+      }
+
+      function SetGuestName() {
+      ObjectName.value = "name";
+      ObjectData.value = guest_name.value;
+      SetObjectData();
+      GetLabelImage();
+      }
+
+      function AfterLoad() {
+      Open();
+      GetLabelImage();
+      }
+      
+      function OnLoad() {
+      GetDYMOPrinters();
+      GetPaperTray();
+      GetMRUList();
+      GetObjectNames();
+      GetLabelImage();
+      GetAPIVersion();
+      }
+
+      function UpdateControls() {
+      GetLabelImage();
+      GetDYMOPrinters();
+      GetObjectNames();
+      }
+
+      function Open() {
+      DYMOLabelPlugin.Open(OpenLabelPath.value);
+      UpdateControls();
+      }
+
+      function OpenFromMRU() {
+      DYMOLabelPlugin.OpenByMRUIndex(MRU.selectedIndex);
+      UpdateControls();
+      }
+
+      function Save() {
+      DYMOLabelPlugin.Save();
+      }
+
+      function SaveAs() {
+      DYMOLabelPlugin.SaveAs(SaveLabelPath.value);
+      }
+
+      function Print() {
+      DYMOLabelPlugin.Print(PrintCopies.value,PaperTray.value,ShowPrintDialog.checked);
+      }
+
+      function SetCurrentPrinter() {
+      DYMOLabelPlugin.SetCurrentPrinter(PrinterName.value);
+      GetLabelImage();
+      }
+
+      function GetCurrentPrinter() {
+      PrinterName.value = DYMOLabelPlugin.GetCurrentPrinter();
+      }
+
+      function GetDYMOPrinters() {
+      var printers = DYMOLabelPlugin.GetDymoPrinters();
+
+      while(PrinterName.children.length)
+      PrinterName.removeChild(PrinterName.children(0));
+
+      if(printers)
+      {
+      printers = printers.split(";");
+      
+      for(var i=0;i < printers.length;i++)
+		      {
+		      var newOption = document.createElement("option");
+		      newOption.innerText = printers[i];
+		      PrinterName.insertBefore(newOption);
+		      }
+		      GetCurrentPrinter();
+		      }
+		      }
+
+		      function GetLabelImage()
+		      {
+		      DYMOLabelPlugin.GetLabelImage();
+		      }
+
+		      // Label
+
+		      function GetPaperTray()
+		      {
+		      PaperTray2.value = DYMOLabelPlugin.GetPaperTray();
+
+		      switch(PaperTray2.value)
+		      {
+		      case "select":
+		      PaperTray.value = "auto";
+		      break;
+		      case "undefined":
+		      PaperTray.value = "auto";
+		      break;
+		      default:
+		      PaperTray.value = DYMOLabelPlugin.GetPaperTray();
+		      break;
+		      }
+		      }
+
+		      function GetMRUList() {
+		      var mru = DYMOLabelPlugin.GetMRUList();
+
+		      while(MRU.children.length)
+		      MRU.removeChild(MRU.children(0));
+
+		      if(mru)
+		      {
+		      mru = mru.split(";");
+		      for(var i=0;i < mru.length;i++)
+				      {
+				      var newOption = document.createElement("option");
+				      newOption.innerText = mru[i];
+				      MRU.insertBefore(newOption);
+				      }
+				      }
+				      }
+				      function GetObjectNames() {
+				      var names = DYMOLabelPlugin.GetObjectNames(VariableObjectsOnly.checked);
+
+				      while(ObjectName.children.length)
+				      ObjectName.removeChild(ObjectName.children(0));
+
+				      if(names)
+				      {
+				      names = names.split(";");
+
+				      for(var i=0;i < names.length;i++)
+						      {
+						      var newOption = document.createElement("option");
+						      newOption.innerText = names[i];
+						      ObjectName.insertBefore(newOption);
+						      }
+						      }
+						      }
+						      function GetObjectData() {
+						      ObjectData.value = DYMOLabelPlugin.GetObjectData(ObjectName.value);
+						      }
+
+						      function SetObjectData() {
+						      DYMOLabelPlugin.SetObjectData(ObjectName.value,ObjectData.value);
+						      GetLabelImage();
+						      }
+
+						      function Paste() {
+						      DYMOLabelPlugin.Paste();
+						      GetLabelImage();
+						      }
+
+						      function PasteToObject() {
+						      DYMOLabelPlugin.PasteToObject(ObjectName.value);
+						      GetLabelImage();
+						      }
+						      
+						      function GetAPIVersion() {
+						      APIVersion.innerText = 'API version: ' + DYMOLabelPlugin.GetAPIVersion();
+						      }
+
+
+						      </script>
+  </head>					      
+  
+
+  <body onload="OnLoad()">
+    <div id="main">
+      <div id="wrapper">
+	<div id="left">
+	  <img src="http://www.k9ventures.com//wp-content/themes/k9theme/images/logos/logo90x100.png" alt="K9 Ventures" class="centeredImage">
+	</div>
+	
+	<div id="middle">
+	  
+	  <form action="http://m.k9.vc/guests" class="new_guest" id="new_guest" method="post" onSubmit="return Checkin()"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="vxHPS0+N3BzA7hiI8xPDafXDfYQyjbdcZqi3ZxrprOc=" /></div>
+	    
+
+	    <p>
+	      <label for="guest_name">Name</label><br />
+	      <input id="guest_name" name="guest[name]" size="30" type="text" onBlur="SetGuestName()"/>
+	    </p>
+	    <p>
+	      <label for="guest_company">Company</label><br />
+	      <input id="guest_company" name="guest[company]" size="30" type="text" onBlur="SetGuestCompany()"/>
+	    </p>
+	    <p class="submit">
+	      <input id="guest_submit" name="commit" type="submit" value="checkin" />
+	    </p>
+	  </form>
+	</div>
+
+	<div id="right">
+	  <center>
+	    <embed id="DYMOLabelPlugin" width="300" height="200" type="application/x-dymolabel" bgcolor="#303030"></embed>
+	  </center>
+	</div>
+	
+	<div id="dymoform">
+	  <center>
+	    <form action="" method="post" id="DYMOLabel">
+	      <table>
+		
+		<tr><td align=center colspan=2>
+		    <input type=button value="Refresh View" onClick="GetLabelImage()">
+		    
+		    <tr><td align=right></td>
+		      <td></td></tr>
+		    
+		    <tr><td align=right>Label: <input type=text size="50" maxLenght="100" value="/Users/sneaker/Documents/DYMO Label Software/Layouts/K9 Ventures.label" id="OpenLabelPath"></td>
+		      <td><input type=button value="Open Label" onClick="Open()">
+			<input type=button value="Save Label" onClick="Save()"></td></tr>
+
+		    <tr><td align=right>File: <input type=text size="50" maxLenght="100" value="/Applications/DYMO Label SDK/SDK Examples/Save.label" id="SaveLabelPath"></td>
+		      <td><input type=button value="Save Label As" onClick="SaveAs()"></td></tr>
+
+		    <tr><td align=right>Print Copies: <input type=text size="3" maxLength="3" value="1" id="PrintCopies"></td>
+		      <td><input type=button value="Print Label" onClick="Print()"></td></tr>
+		    <tr><td align=right>Paper Tray: <select id="PaperTray">
+			  <option selected>auto</option>
+			  <option>left</option>
+			  <option>right</option>
+		      </select></td><td></td></tr>
+		    <tr><td align=right>Show Print Dialog: <input type=checkbox id="ShowPrintDialog"></td><td>(OS 10.4, 10.5 only)</td></tr>
+
+		    <tr><td valign=top align=right>Printers: <select id="PrinterName"></select></td>
+		      <td><input type=button value="Get DYMO Printers" onClick="GetDYMOPrinters()"><br>
+			<input type=button value="Set Current Printer" onClick="SetCurrentPrinter()">
+			<input type=button value="Get Current Printer" onClick="GetCurrentPrinter()"></td></tr>
+
+		    <tr><td align=right>Paper Tray: <select id="PaperTray2">
+			  <option selected>auto</option>
+			  <option>left</option>
+			  <option>right</option>
+			  <option>select</option>
+			  <option>undefined</option>
+		      </select></td>
+		      <td><input type=button value="Get Paper Tray" onClick="GetPaperTray()"></td></tr>
+
+		    <tr><td align=right>MRU: <select id="MRU"></select></td>
+		      <td><input type=button value="Get MRU List" onClick="GetMRUList()"></td>
+		    </tr>
+		    <tr>
+		      <td></td>
+		      <td><input type=button value="Open" onClick="OpenFromMRU()"></td>
+		    </tr>
+
+		    <tr><td align=right>Objects: <select id="ObjectName"></select></td>
+		      <td><input type=button value="Get Object Names" onClick="GetObjectNames()"></td></tr>
+
+		    <tr><td align=right>Variable Only: <input type=checkbox id="VariableObjectsOnly"></td>
+		      <td></td></tr>
+
+		    <tr><td><table><tr><td valign=top>Object Data:</td><td><textarea rows=10 cols=50 id="ObjectData">Test Test Test</textarea></td></tr></table></td>
+		      <td valign=baseline><input type=button value="Get Object Data" onClick="GetObjectData()"><br>
+			<input type=button value="Set Object Data" onClick="SetObjectData()"></td></tr>
+
+		    <tr><td align=center colspan=2><input type=button value="Paste" onClick="Paste()">
+			<input type=button value="Paste To Object" onClick="PasteToObject()"></td></tr>
+		    
+	      </table>
+	    </form>
+
+	  </center>
+	</div>
+      </div>  
+    </div>
+    <br clear="all">
+    <div id="footer">
+    </div>
+    <script>
+      window.onLoad = AfterLoad();
+    </script>
+  </body>
+</html>

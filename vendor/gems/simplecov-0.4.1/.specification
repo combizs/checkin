@@ -1,0 +1,176 @@
+--- !ruby/object:Gem::Specification 
+name: simplecov
+version: !ruby/object:Gem::Version 
+  hash: 13
+  prerelease: 
+  segments: 
+  - 0
+  - 4
+  - 1
+  version: 0.4.1
+platform: ruby
+authors: 
+- Christoph Olszowka
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2011-02-24 00:00:00 -07:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: simplecov-html
+  prerelease: false
+  requirement: &id001 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 9
+        segments: 
+        - 0
+        - 4
+        - 3
+        version: 0.4.3
+  type: :runtime
+  version_requirements: *id001
+- !ruby/object:Gem::Dependency 
+  name: shoulda
+  prerelease: false
+  requirement: &id002 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - "="
+      - !ruby/object:Gem::Version 
+        hash: 33
+        segments: 
+        - 2
+        - 10
+        - 3
+        version: 2.10.3
+  type: :development
+  version_requirements: *id002
+- !ruby/object:Gem::Dependency 
+  name: rspec
+  prerelease: false
+  requirement: &id003 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 15
+        segments: 
+        - 2
+        - 0
+        - 0
+        version: 2.0.0
+  type: :development
+  version_requirements: *id003
+description: Code coverage for Ruby 1.9 with a powerful configuration library and automatic merging of coverage across test suites
+email: 
+- christoph at olszowka de
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- .document
+- .gitignore
+- .rvmrc
+- Gemfile
+- LICENSE
+- README.rdoc
+- Rakefile
+- lib/simplecov.rb
+- lib/simplecov/adapters.rb
+- lib/simplecov/command_guesser.rb
+- lib/simplecov/configuration.rb
+- lib/simplecov/filter.rb
+- lib/simplecov/formatter.rb
+- lib/simplecov/formatter/simple_formatter.rb
+- lib/simplecov/jruby_float_fix.rb
+- lib/simplecov/merge_helpers.rb
+- lib/simplecov/result.rb
+- lib/simplecov/result_merger.rb
+- lib/simplecov/source_file.rb
+- lib/simplecov/version.rb
+- simplecov.gemspec
+- test/fixtures/app/controllers/sample_controller.rb
+- test/fixtures/app/models/user.rb
+- test/fixtures/deleted_source_sample.rb
+- test/fixtures/frameworks/rspec_bad.rb
+- test/fixtures/frameworks/rspec_good.rb
+- test/fixtures/frameworks/testunit_bad.rb
+- test/fixtures/frameworks/testunit_good.rb
+- test/fixtures/resultset1.rb
+- test/fixtures/resultset2.rb
+- test/fixtures/sample.rb
+- test/helper.rb
+- test/shoulda_macros.rb
+- test/test_1_8_fallbacks.rb
+- test/test_command_guesser.rb
+- test/test_deleted_source.rb
+- test/test_filters.rb
+- test/test_merge_helpers.rb
+- test/test_result.rb
+- test/test_return_codes.rb
+- test/test_source_file.rb
+- test/test_source_file_line.rb
+has_rdoc: true
+homepage: http://github.com/colszowka/simplecov
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: simplecov
+rubygems_version: 1.4.2
+signing_key: 
+specification_version: 3
+summary: Code coverage for Ruby 1.9 with a powerful configuration library and automatic merging of coverage across test suites
+test_files: 
+- test/fixtures/app/controllers/sample_controller.rb
+- test/fixtures/app/models/user.rb
+- test/fixtures/deleted_source_sample.rb
+- test/fixtures/frameworks/rspec_bad.rb
+- test/fixtures/frameworks/rspec_good.rb
+- test/fixtures/frameworks/testunit_bad.rb
+- test/fixtures/frameworks/testunit_good.rb
+- test/fixtures/resultset1.rb
+- test/fixtures/resultset2.rb
+- test/fixtures/sample.rb
+- test/helper.rb
+- test/shoulda_macros.rb
+- test/test_1_8_fallbacks.rb
+- test/test_command_guesser.rb
+- test/test_deleted_source.rb
+- test/test_filters.rb
+- test/test_merge_helpers.rb
+- test/test_result.rb
+- test/test_return_codes.rb
+- test/test_source_file.rb
+- test/test_source_file_line.rb
